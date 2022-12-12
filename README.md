@@ -1,13 +1,13 @@
-# Blazor Mapbox
+# Fennorad Mapbox
 
 ## Introduction
-This is a Blazor library that wraps the [Mapbox GL JS](https://www.mapbox.com/mapbox-gljs) library. Mapbox GL JS is a JavaScript library for vector maps on the Web. Its performance, real-time styling, and interactivity features set the bar for anyone building fast, immersive maps on the web.
+This is a library that forks [BlazorMapbox](https://github.com/johnsonea2/BlazorMapbox) with some enhancements. This adds [Directions](https://github.com/mapbox/mapbox-gl-directions) and geolocation components to the library. 
 
 ## Getting Started
 ### Prerequisites & Installation 
 ---
+- Your application needs to target .NET 6.
 - A Mapbox access token is required to view the map. You can acquire one at https://account.mapbox.com/access-tokens/. 
-- Your application needs to target .NET 5. 
 
 ### Usage 
 ---
@@ -16,6 +16,14 @@ This is a Blazor library that wraps the [Mapbox GL JS](https://www.mapbox.com/ma
 ```
 <MapboxMap AccessToken="{YOUR ACCESS TOKEN HERE}"></MapboxMap>
 ```
+- In order to add directions and/or geolocation ensure you add
+```
+<MapboxMap AccessToken=@AccessToken AddDirectionsFlag=@true AddGeoLocationFlag=@true></MapboxMap>
+```
 
-And that's it! The map should render on your page. 
+
+- In order for this package to work with a deployable you need to add the following script to your `_Host.cshtml`
+```
+<script src="~/_content/Fennorad.Mapbox/MapboxInterop.js"></script>
+```
 
