@@ -22,27 +22,34 @@ function AddDirectionsCSS() {
 const instances = {};
 
 var Mapbox = {
-    create: function (accessToken, options, dotnetReference) {
+    create: function (accessToken, options, addDirections, addGeoLocation, dotnetReference) {
         mapboxgl.accessToken = accessToken;
 
         var map = new mapboxgl.Map(options);
-        map.addControl(
-            new MapboxDirections({
-                accessToken: mapboxgl.accessToken
-            }),
-            'top-left'
-        );
-        map.addControl(
-            new mapboxgl.GeolocateControl({
-                positionOptions: {
-                    enableHighAccuracy: true
-                },
-                // When active the map will receive updates to the device's location as it changes.
-                trackUserLocation: true,
-                // Draw an arrow next to the location dot to indicate which direction the device is heading.
-                showUserHeading: true
-            })
-        );
+
+        if (addDirections) {
+            map.addControl(
+                new MapboxDirections({
+                    accessToken: mapboxgl.accessToken
+                }),
+                'top-left'
+            );
+        }
+
+        if (addGeoLocation) {
+            map.addControl(
+                new mapboxgl.GeolocateControl({
+                    positionOptions: {
+                        enableHighAccuracy: true
+                    },
+                    // When active the map will receive updates to the device's location as it changes.
+                    trackUserLocation: true,
+                    // Draw an arrow next to the location dot to indicate which direction the device is heading.
+                    showUserHeading: true
+                })
+            );
+        }
+        
         instances[options.container] = map;
 
         map.on('load', function () {

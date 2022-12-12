@@ -315,6 +315,13 @@ namespace Fennorad.Mapbox
         public Options Options { get; set; }
 
         [Parameter]
+        public bool AddDirectionsFlag { get; set; } = false;
+
+
+        [Parameter]
+        public bool AddGeoLocationFlag { get; set; } = false;
+
+        [Parameter]
         public EventCallback<EventArgs> OnLoad { get; set; }
 
         [JSInvokable]
@@ -367,7 +374,7 @@ namespace Fennorad.Mapbox
             }
             Options.Container = _Id;
 
-            return _Module.InvokeVoidAsync("Mapbox.create", AccessToken, Options, _DotNetObjectReference);
+            return _Module.InvokeVoidAsync("Mapbox.create", AccessToken, Options, AddDirectionsFlag, AddGeoLocationFlag, _DotNetObjectReference);
         }
 
         public async Task<Listener> AddListener<T>(Events eventName, string layer, Action<T> handler)
