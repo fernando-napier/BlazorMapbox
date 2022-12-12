@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace FennoradMapbox.Models
+namespace Fennorad.Mapbox.Models
 {
     public class MercatorCoordinate
     {

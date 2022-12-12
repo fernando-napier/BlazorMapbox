@@ -3,7 +3,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Threading.Tasks;
 
-namespace FennoradMapbox.Models
+namespace Fennorad.Mapbox.Models
 {
     public class Popup : IDisposable
     {

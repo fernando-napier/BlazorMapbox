@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace FennoradMapbox.Events
+namespace Fennorad.Mapbox.Events
 {
     public class BaseEvent
     {

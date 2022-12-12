@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json.Serialization;
-using FennoradMapbox.Models;
+using Fennorad.Mapbox.Models;
 
-namespace FennoradMapbox.Events
+namespace Fennorad.Mapbox.Events
 {
     public class MapMouseEvent : BaseEvent
     {
